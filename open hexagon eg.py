@@ -5,14 +5,24 @@ import random
 def popup():
     x = random.randint(100, 700)  # 随机X坐标
     y = random.randint(100, 500)  # 随机Y坐标
-    root.geometry(f"+{x}+{y}")    # 移动窗口到随机位置
-    messagebox.showinfo("Hi!", "I`m hack your computer now!")
+    popup_window = tk.Toplevel(root)
+    popup_window.geometry(f"300x100+{x}+{y}")  # 弹出窗口的位置和大小
+    popup_window.title("警告！")
+    
+    # 创建标签
+    label = tk.Label(popup_window, text="I`m hack your computer now!", font=("Arial", 12))
+    label.pack(pady=10)
+
+    # 禁用窗口关闭按钮
+    popup_window.protocol("WM_DELETE_WINDOW", lambda: None)
+
+    # 增加窗口数量
+    root.after(1000, popup)  # 每隔1秒弹出一个新窗口
 
 root = tk.Tk()
 root.withdraw()  # 隐藏主窗口
 
-# 无限循环弹出
-while True:
-    popup()
+# 弹出第一个窗口
+popup()
 
 root.mainloop()
