@@ -8,7 +8,7 @@ ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
 
 def popup():
     x = random.randint(100, 700)  # 随机X坐标
-    y = random.randint(100, 500)  # 随机Y坐标
+    y = random.randint(100, 1500)  # 随机Y坐标
     popup_window = tk.Toplevel(root)
     popup_window.geometry(f"300x100+{x}+{y}")  # 弹出窗口的位置和大小
     popup_window.title("警告！")
@@ -21,7 +21,7 @@ def popup():
     popup_window.protocol("WM_DELETE_WINDOW", lambda: None)
 
     # 增加窗口数量
-    root.after(2000, popup)  # 每隔2秒弹出一个新窗口
+    root.after(2000, popup)  # 每2秒弹出一个新窗口
 
 # 创建Tkinter主窗口
 root = tk.Tk()
