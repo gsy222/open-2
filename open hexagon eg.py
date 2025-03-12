@@ -21,7 +21,7 @@ def popup():
     popup_window.protocol("WM_DELETE_WINDOW", lambda: None)
 
     # 增加窗口数量
-    root.after(1000, popup)  # 每隔1秒弹出一个新窗口
+    root.after(2000, popup)  # 每隔1秒弹出一个新窗口
 
 # 创建Tkinter主窗口
 root = tk.Tk()
